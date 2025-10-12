@@ -39,21 +39,21 @@ public class Main {
         switch (choice) {
             case "1":
                 System.out.println("Enter Student Name: ");
-                clearConsole();
                 String user_input_name = input.nextLine().toLowerCase();
-                String new_student = idGenerator(user_input_name);
+                String new_student = idGen_combine(user_input_name);
+                clearConsole();
 
-                System.out.println("Student Name: " + user_input_name +" has been added");
+                System.out.println("Student Added Successfully! ");
+                System.out.println("Student Name: " + user_input_name);
                 System.out.println("Student ID: " + extractID(new_student));
                 return 0;
             case "2":
                 System.out.println("Enter Student/ID: ");
-                clearConsole();
                 String query = input.nextLine().toLowerCase();
+                clearConsole();
                 searchStudent(query,studentList);
                 return 0;
             case "3":
-                System.out.println("Display ID/Names");
                 clearConsole();
                 searchAllStudent(studentList);
                 return 0;
@@ -98,7 +98,7 @@ public class Main {
         }
     }
 
-    public static String idGenerator(String input) {
+    public static String idGen_combine(String input) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         java.util.Random rand = new java.util.Random();
         String newID = "";
@@ -115,7 +115,7 @@ public class Main {
 
 
         } while (studentList.contains(newID));
-        studentList.add(newID);
+        studentList.add(input + newID);
         return newID;
     }
 
@@ -131,6 +131,7 @@ public class Main {
                 System.out.println("Student Found");
                 System.out.println("Student name: " + namePart);
                 System.out.println("Student ID: " + idPart);
+                System.out.println(" ");
 
                 found = true;
             }
