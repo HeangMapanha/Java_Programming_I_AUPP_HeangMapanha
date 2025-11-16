@@ -180,7 +180,7 @@ public class Main {
 
     // -------------------- NEW FUNCTION: SEARCH BY CLASS --------------------
     public static void searchByClass(Scanner input) {
-        System.out.print("Enter class name to search (e.g., Math): ");
+        System.out.print("Enter class name to search (Math,Science,History.English,Computer,Art): ");
         String className = input.nextLine().trim().toLowerCase();
 
         boolean found = false;
